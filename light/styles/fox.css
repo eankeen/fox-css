@@ -598,7 +598,7 @@ summary, details {
   box-sizing: border-box;
 }
 
-html {
+html, body {
   height: 100%;
   color: #212529;
   background-color: #f8f9fa;
