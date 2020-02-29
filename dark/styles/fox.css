@@ -276,7 +276,7 @@ summary {
 
 body {
   margin: 10px;
-  font-family: system-ui -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 main {
@@ -285,7 +285,7 @@ main {
 
 section, article, aside, nav, blockquote, span, dd, dt, samp, button {
   padding: 10px;
-  margin: 10px 10px 10px 0;
+  /* margin: $ws-medium $ws-medium 0 0; */
   border-radius: 5px;
   background-color: #343a40;
   overflow: auto;
@@ -335,6 +335,18 @@ aside {
   background-color: #343a40;
 }
 
+.flex {
+  display: flex;
+}
+
+.flex > * {
+  flex: 1;
+}
+
+.flex > * ~ * {
+  margin-left: 10px;
+}
+
 @media(max-width: 700px) {
   aside {
     float: none;
@@ -344,22 +356,19 @@ aside {
   .flex {
     flex-direction: column;
   }
-}
 
-.flex {
-  display: flex;
-}
-
-.flex > * {
-  flex: 1;
+  .flex > * ~ * {
+    margin-left: unset;
+    margin-top: 10px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 10px 0;
+  margin: 0 0 10px 0;
 }
 
 p {
-  margin: 10px 0;
+  margin: 0 0 10px 0;
 }
 
 a {
@@ -420,16 +429,20 @@ ins {
 }
 
 dl {
+  margin-top: 0;
+  margin-bottom: 10px;
   border: 2px solid #343a40;
   padding: 10px;
   border-radius: 5px;
 }
 
 dt {
+  margin-bottom: 5px;
   border-bottom: 2px solid #343a40;
 }
 
 dd {
+  margin-bottom: 10px;
   margin-left: 40px;
 }
 
@@ -509,13 +522,30 @@ form {
   border: 2px solid #343a40;
 }
 
+label + input, label input {
+  display: block;
+}
+
+label + input[type='checkbox'], label input[type='checkbox'],
+label + input[type='radio'], label input[type='radio'] {
+  display: inline;
+  display: initial;
+}
+
+input, select, fieldset {
+  margin: 0 0 10px;
+}
+
+input[type='submit'] {
+  margin: 0;
+}
+
 input, select, textarea {
+  color: #f8f9fa;
   border: 2px solid #343a40;
   border-radius: 5px;
   padding: 8px;
-  margin: 5px 5px 5px 0;
   background: #495057;
-  color: #f8f9fa;
 }
 
 textarea {
@@ -537,8 +567,8 @@ input[type='radio'], input[type='checkbox'] {
      -moz-appearance: none;
           appearance: none;
   position: relative;
-  top: 10px;
-  cursor: pointer;     
+  top: 15px;
+  cursor: pointer;
 }
 
 input[type='radio'] {
@@ -546,12 +576,21 @@ input[type='radio'] {
 }
 
 input[type='checkbox'] {
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 input[type='radio']:checked, input[type='checkbox']:checked {
   background-color: #868e96;
   transition: all 0.1s ease-in;
+}
+
+fieldset {
+  border: 2px solid #343a40;
+  border-radius: 5px;
+}
+
+legend {
+  padding: 5px;
 }
 
 hr {
@@ -580,18 +619,13 @@ figure {
   margin: 5px;
 }
 
-fieldset {
+summary {
+  padding: 5px;
+}
+
+summary {
   border: 2px solid #343a40;
   border-radius: 5px;
-  margin: 0;
-}
-
-legend {
-  padding: 5px;
-}
-
-summary, details {
-  padding: 5px;
 }
 
 *, *::before, *::after {
