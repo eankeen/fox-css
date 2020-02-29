@@ -285,13 +285,14 @@ main {
 
 section, article, aside, nav, blockquote, span, dd, dt, samp, button {
   padding: 10px;
-  /* margin: $ws-medium $ws-medium 0 0; */
+  margin-bottom: 10px;
   border-radius: 5px;
   background-color: #343a40;
   overflow: auto;
 }
 
 section article, article section, article aside, section aside {
+  margin-bottom: unset;
   background: #495057;
 }
 
@@ -437,13 +438,17 @@ dl {
 }
 
 dt {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   border-bottom: 2px solid #343a40;
 }
 
 dd {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   margin-left: 40px;
+}
+
+dd:last-child {
+  margin-bottom: unset;
 }
 
 pre {
